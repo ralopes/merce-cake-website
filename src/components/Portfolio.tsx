@@ -4,7 +4,7 @@ import { useRef, useState } from 'react';
 interface PortfolioItem {
   id: number;
   name: string;
-  category: 'infantil' | 'especial';
+  category: 'infantil' | 'casamento' | 'especial';
   image: string;
 }
 
@@ -17,6 +17,7 @@ const Portfolio = () => {
   const filters = [
     { id: 'todos', label: 'Todos' },
     { id: 'infantil', label: 'Festa Infantil' },
+    { id: 'casamento', label: 'Casamento' },
     { id: 'especial', label: 'Datas Especiais' },
   ];
 
@@ -114,6 +115,19 @@ const Portfolio = () => {
           ))}
         </motion.div>
 
+        {filteredItems.length === 0 && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            className="text-center py-16"
+          >
+            <p className="font-playfair text-2xl text-gray-400 mb-3">Em breve</p>
+            <p className="font-lato text-gray-400 text-sm">
+              Novas criações chegando em breve. Fale conosco para saber mais.
+            </p>
+          </motion.div>
+        )}
+
         <motion.div
           key={activeFilter}
           variants={containerVariants}
@@ -153,10 +167,16 @@ const Portfolio = () => {
                     className={`px-3 py-1 rounded-full text-xs font-lato font-medium shadow-clay-sm ${
                       item.category === 'infantil'
                         ? 'bg-pink-100 text-pink-600'
-                        : 'bg-light-blush text-peach-rose'
+                        : item.category === 'casamento'
+                          ? 'bg-amber-50 text-amber-600'
+                          : 'bg-light-blush text-peach-rose'
                     }`}
                   >
-                    {item.category === 'infantil' ? 'Infantil' : 'Especial'}
+                    {item.category === 'infantil'
+                      ? 'Infantil'
+                      : item.category === 'casamento'
+                        ? 'Casamento'
+                        : 'Especial'}
                   </span>
                 </div>
               </div>
