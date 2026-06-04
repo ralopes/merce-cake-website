@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Heart, Gem, Gift } from 'lucide-react';
+import { Heart, Gem, Gift, Star } from 'lucide-react';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 
@@ -22,6 +22,11 @@ const Categories = () => {
       icon: Gift,
       title: 'Datas Especiais',
       description: 'Aniversários, formaturas, batizados e celebrações únicas. Cada ocasião merece um bolo feito especialmente para ela.',
+    },
+    {
+      icon: Star,
+      title: 'Tradicionais',
+      description: 'Bolo de cenoura, ChocolaTudo, laranja com calda... As gostosuras de todo dia, feitas com o mesmo carinho dos nossos bolos de festa.',
     },
   ];
 
@@ -63,7 +68,7 @@ const Categories = () => {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? 'visible' : 'hidden'}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8"
         >
           {categories.map((category, index) => (
             <motion.div
