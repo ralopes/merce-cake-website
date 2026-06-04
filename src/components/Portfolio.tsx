@@ -17,6 +17,7 @@ const Portfolio = () => {
     { id: 'todos', label: 'Todos' },
     { id: 'infantil', label: 'Festa Infantil' },
     { id: 'casamento', label: 'Casamento' },
+    { id: 'tradicional', label: 'Tradicionais' },
     { id: 'especial', label: 'Datas Especiais' },
   ];
 
@@ -187,18 +188,16 @@ const Portfolio = () => {
                     </h3>
                     <span
                       className={`px-3 py-1 rounded-full text-xs font-lato font-medium shadow-clay-sm ${
-                        item.category === 'infantil'
-                          ? 'bg-pink-100 text-pink-600'
-                          : item.category === 'casamento'
-                            ? 'bg-amber-50 text-amber-600'
-                            : 'bg-light-blush text-peach-rose'
+                        item.category === 'infantil' ? 'bg-pink-100 text-pink-600'
+                        : item.category === 'casamento' ? 'bg-amber-50 text-amber-600'
+                        : item.category === 'tradicional' ? 'bg-orange-50 text-orange-500'
+                        : 'bg-light-blush text-peach-rose'
                       }`}
                     >
-                      {item.category === 'infantil'
-                        ? 'Infantil'
-                        : item.category === 'casamento'
-                          ? 'Casamento'
-                          : 'Especial'}
+                      {item.category === 'infantil' ? 'Infantil'
+                        : item.category === 'casamento' ? 'Casamento'
+                        : item.category === 'tradicional' ? 'Tradicional'
+                        : 'Especial'}
                     </span>
                   </div>
                 </div>

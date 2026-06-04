@@ -11,7 +11,7 @@ export interface CakeDetails {
 
 export interface CakeModalData {
   name: string;
-  category: 'infantil' | 'casamento' | 'especial';
+  category: 'infantil' | 'casamento' | 'tradicional' | 'especial';
   image: string;
   details: CakeDetails;
 }
@@ -24,12 +24,14 @@ interface CakeModalProps {
 const CATEGORY_LABEL: Record<CakeModalData['category'], string> = {
   infantil: 'Infantil',
   casamento: 'Casamento',
+  tradicional: 'Tradicional',
   especial: 'Especial',
 };
 
 const CATEGORY_CLASS: Record<CakeModalData['category'], string> = {
   infantil: 'bg-pink-100 text-pink-600',
   casamento: 'bg-amber-50 text-amber-600',
+  tradicional: 'bg-orange-50 text-orange-500',
   especial: 'bg-light-blush text-peach-rose',
 };
 
